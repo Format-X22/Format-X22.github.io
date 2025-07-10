@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pavlov Finance - Запас на волатильность</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link href="/favicon.png" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="d-flex flex-column" style="min-height: 100vh">
+<nav class="navbar navbar-expand-lg bg-primary mb-5 sticky-top" data-bs-theme="dark">
+    <div class="container offset-2">
+        <a class="navbar-brand" href="/">Pavlov Finance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/blog">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/extra">Полезное</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center blog-content">
+        <div class="col-md-8">
+            <h1>Запас на волатильность</h1>
+            <p class="subtitle">
+                <strong><time datetime="2025-04-06">2025-04-06 </time></strong>
+            </p>
+            <p>Рынок не однороден в масштабе. Если смотреть на глобальные движения, взять свечи длиною в неделю то можно глазами увидеть что движения плавные. И если смотреть на внутренние колебания цен пропорционально фактическому движению на неделях - там внутри в целом всё гладко и направленно будет. И как раз тут стопы можно ставить сильно короче тейков, чаще будет гладкое движение.</p>
+<p>Другое дело когда мы начинаем спускаться всё ниже и ниже. Часто слышал фразу про хаотичность рынков. Вот она про малые таймфреймы. Уже на часовых свечах рынок сильно колеблется внутри каждого часа. Иногда ты можешь смотреть мол ну вот - тут купил, тут продал, тут вот стоп. А потом открываешь то что было внутри часа когда был вход - а там цена дошла до входа, сходила до стопа и пошла дальше. И ты об этом узнаешь по факту когда начинаешь торговать. Если, конечно, не проверяешь пятиминутные свечи, а то и минутные.</p>
+<p>А ещё внутри малых таймфреймов тебя могут не взять на борт. Если на крупных там скорее всего проторгуют в зоне твоего входа и с объемом, то пытаясь торговать на малых таймфреймах можно столкнуться с тем что цена просто пролетит мимо и на тебя не хватит объема. Это в случае если вход на движении в сторону движения. Впрочем - с контртрендом также могут коснуться вроде бы входа, развернуться. Но перед тобой, на той же цене, в стакане могут быть другие ордера. И всё - тебя не взяли.</p>
+<p>Также на малых таймфреймах за счет волатильности могут просто случайно задеть твой стоп, потому что это действительно хаос.</p>
+<p>Но есть способы борьбы с этим. Нужно учитывать это в сделках. В случае входа по тренду имеет смысл входить не сразу, а ставить лимитку чуть дальше назад. В итоге цена прошла точку входа, волатильностью развернулась, налила в лимитку и пошла дальше. И на такое же расстояние стоит отодвинуть стоп - чтобы случайные флуктуации не коснулись.</p>
+<p>Можно ещё наоборот двигать лимитку вперёд или даже входить маркет-ордером по рынку. Но это резко ухудшает пропорцию риска к прибыли. Да - с маркетом точно будет вход. Но по какой цене? На своём опыте я знаю как резко оно может сдвинуть точку входа, особенно когда у тебя стоп ближе чем на процент от входа. А ведь стоп при этом нужно всё равно двигать назад, защищаясь от флуктуаций. И вот уже 1 к 3 превращается в 1 к 1.5 - пропорции резко меняются при незначительном перемещении входа и стопа.</p>
+<p>И при этом сложно надеяться на то что тейк будет дальше - на малых таймфреймах цена может развернуться раньше, как раз в пределах флуктуаций, а хочется выходить в плюс всегда. А трейлинг-стоп всё равно хуже фиксированного для таких ситуаций - трейлинг банально раскидает об флуктуацию.</p>
+<p>Для биткоина, на мой взгляд, флуктуации ходят в диапазоне 0.25-0.30%, то есть при торговле всегда стоит учитывать что дергаться цена будет в таких диапазонах. Для каждого токена, акции, любого торгового инструмента - свой диапазон, а ещё он меняется со временем. При торговле на малых таймфреймах стоит учитывать его прежде чем войти в сделку.</p>
+<p>Добавлю про волатильность ещё один момент, и вот он действительно важный для любых торговых стратегий и всегда нужно корректировать на это событие.</p>
+<p>Если посмотреть на график, то видно что после резкого движения в одну сторону часто идёт другое в обратную. А после цена колеблется туда-сюда. Так называемый вертолет. Так вот если у вас шорт, стоит ордер на вход, цена уже рядом и вдруг она прыгает вверх - это опасность. Потому что после она, если пойдёт вниз, то очень может вызвать резкую волатильность, цена будет дергаться туда-сюда. И как раз в этот момент она может коснуться входа, сходить до стопа и потом пойти лететь дальше.</p>
+<p>Всегда стоит учитывать такой кейс. В идеале стоит временно отказаться от входа, дать цене хотя бы разок сходить вниз, отскочить вверх и уже там входить. А почему бы на отскоке вверх не зайти в шорт по ещё более выгодной цене? Бывает так что это был случайный пролет вниз и далее цена пойдёт строго вверх, без остановки. Это опасно, это стоит принимать во внимание и корректировать в торговой стратегии. Для лонгов тоже самое.</p>
+<p>С другой стороны - есть стратегии, построенные на ловле такой волатильности. Это же круто - цена пошла вверх, потом вниз, потом снова вверх - ходи с ней туда-сюда, откупай на краях, удобно. Так что если вы хотите поиграть в ловлю ножей на диапазоне - хороший кейс.</p>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto sticky-bottom">
+    <div class="container-fluid mt-5 pt-3 pb-3 bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center pb-3 d-none d-sm-none d-md-block">
+                <p class="text-light pointer" onclick="window.scrollTo(0, 0)"><i class="bi bi-chevron-up"></i> Вверх</p>
+                <p class="text-light pointer" onclick="history.back()"><i class="bi bi-chevron-left"></i> Назад</p>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <span class="text-light">Контакты</span>
+            </div>
+
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+
+            <div class="col-md-2 text-center pb-3 d-flex d-sm-flex d-md-none justify-content-between ps-5 pe-5">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/bootstrap.bundle.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TWQRTQKCR"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0TWQRTQKCR');
+</script>
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(102980675, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/102980675" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>

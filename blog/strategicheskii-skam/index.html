@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pavlov Finance - Стратегический скам</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link href="/favicon.png" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="d-flex flex-column" style="min-height: 100vh">
+<nav class="navbar navbar-expand-lg bg-primary mb-5 sticky-top" data-bs-theme="dark">
+    <div class="container offset-2">
+        <a class="navbar-brand" href="/">Pavlov Finance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/blog">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/extra">Полезное</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center blog-content">
+        <div class="col-md-8">
+            <h1>Стратегический скам</h1>
+            <p class="subtitle">
+                <strong><time datetime="2024-06-27">2024-06-27 </time></strong>
+            </p>
+            <p>Не так давно участвовал в диалоге о том что было бы неплохо открыть агрегатор различных торговых ботов. Любопытная штука, позволит выбрать лучшего и вложиться в него… или нет?</p>
+<p>Сейчас я расскажу схему как вас могут обмануть, а также варианты и тонкости.</p>
+<p>Если вы читали мой канал ранее то, возможно, помните про скам 256. Но даже если не читали - вот вам схема того как такое можно сделать на торговых роботах. Создается 256 торговых роботов, выбирается консервативная стратегия - стоп в пару процентов от входа, можно тейк 1 к 3 и прочее. И вроде всё хорошо. Только вот точки входа и выхода совсем произвольные, просто каждые несколько дней. Но почему 256? Потому что половиной ботов ставится лонг, а второй половиной шорт, то есть 128 в лонг, 128 в шорт. Потом берём 64 бота и там также - либо лонг, либо шорт. В итоге через 8 сделок у нас будет один бот, который не ошибался ни разу 8 раз подряд. И вот он чемпион. Но 8 сделок мало, к тому же лудоманы часто мерят винрейтами, в целом если 2/3 сделки успешные - вполне себе неплохо. Можно сделать больше 8 сделок и продолжать их делать. Со временем из 256 ботов будет штук 16 с весьма крутыми показателями. Да, там теоретически могут быть моменты когда и лонг и шорт не пошли, но достаточно чуть подобрать адекватные тейки и стопы.</p>
+<p>И вуаля - у вас есть 16 крутых ботов, из них парочка вообще с адовой прибылью. И тут с вас соберут плоды.</p>
+<p>Простейший кейс - фонд. Мол вот мой бот, неси денег, покатаю, прибыль поделим. Результат - деньги уже не вернутся. Бонус - могут потребовать за вывод прибыли комиссию, собрав ещё немного денег со вкладчика в конце.</p>
+<p>Но может просто не давать денег? Пусть торгует по апи! Хороший вариант, но не защитит до конца. Может быть такой договор что с прибыли процент в карман, с убыли - ну увы. В итоге на удачу - если сделка была удачная - ну хорошо, денег в карман. Если нет - ну это рынок, бро. Ничего, потом ещё крутого бота нового сделаем, раньше же работало, заноси денег потом.</p>
+<p>А может и апи не давать, а по сигналам? Неплохо, но суть ведь та же - процент соберут.</p>
+<p>Так может не процент, а фикса? Да, но тогда ещё легче отнекиваться - это же просто советы за деньги, никаких обманов.</p>
+<p>Но может тогда не боты с огромной прибылью, а с небольшой, но долго стабильной? А кто сказал что там не та же схема? Просто оно более долгое, но зато и занесут, скорее всего, больше - ведь типа малые риски, больше стабильности… в идеале.</p>
+<p>И в итоге, если так подумать, сложновато от такого защищаться. Можно конечно попробовать выведать как оно работает, но никто ведь не расскажет - либо коммерческая тайна, либо сказка про ИИ, аналитиков и крутой теханализ, а может даже и инсайд и прочее. Но внутри может быть всё та же вероятностная схема 256.</p>
+<p>Так что любой агрегатор торговых ботов, любой рейтинг торгов, уязвим для этой схемы и нужно быть очень осторожным и внимательным. По факту единственная адекватная защита это наблюдение за человеком или компанией и тем каких ботов они предлагают. Если они периодически сливают и появляются новые - красный флаг. Если это первый бот и истории особо нет - тоже, увы, красный флаг. Если малая, но стабильная прибыль - тоже всё ещё не зеленый. Если ритмическая периодичность самих сделок по времени - тоже подозрительно. И множество сделок не гарантия - добавив сверху мартингейл можно получить тысячу сделок, но они будут как условно одна, просто один бот будет так катать лонг, а второй шорт. И если бот направлен в одну сторону - либо лонги, либо шорты длинные периоды времени - это признак, это красный флаг.</p>
+<p>В целом, на базе схемы 256 и замиксовав с мартингейлом и всякими математическими трюками с риск-менеджментом можно много опасного накрутить и этим вас могут обмануть. Торговать на чужих технологиях бывает притягательно, но опасно. Берегите себя и всегда анализируйте риски и тот факт есть ли набор этих красных флагов в том что вам предлагают.</p>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto sticky-bottom">
+    <div class="container-fluid mt-5 pt-3 pb-3 bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center pb-3 d-none d-sm-none d-md-block">
+                <p class="text-light pointer" onclick="window.scrollTo(0, 0)"><i class="bi bi-chevron-up"></i> Вверх</p>
+                <p class="text-light pointer" onclick="history.back()"><i class="bi bi-chevron-left"></i> Назад</p>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <span class="text-light">Контакты</span>
+            </div>
+
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+
+            <div class="col-md-2 text-center pb-3 d-flex d-sm-flex d-md-none justify-content-between ps-5 pe-5">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/bootstrap.bundle.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TWQRTQKCR"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0TWQRTQKCR');
+</script>
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(102980675, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/102980675" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>

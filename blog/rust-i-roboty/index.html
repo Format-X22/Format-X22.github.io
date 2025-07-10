@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pavlov Finance - Rust и роботы</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link href="/favicon.png" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="d-flex flex-column" style="min-height: 100vh">
+<nav class="navbar navbar-expand-lg bg-primary mb-5 sticky-top" data-bs-theme="dark">
+    <div class="container offset-2">
+        <a class="navbar-brand" href="/">Pavlov Finance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/blog">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/extra">Полезное</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center blog-content">
+        <div class="col-md-8">
+            <h1>Rust и роботы</h1>
+            <p class="subtitle">
+                <strong><time datetime="2024-12-24">2024-12-24 </time></strong>
+            </p>
+            <p>Мой первый торговый бот был написан на JavaScript. Потом мне показалось что слишком сложно и не помещается мне в голову целиком. Потому я переписал его на CoffeeScript - был когда-то популярен такой язык. Он был чрезвычайно лаконичным и в то время уже имел классы, при том что в JavaScript, на момент создания CoffeeScript, их ещё не было. Забавно что автор языка уехал в путешествие на полтора года, вернулся, а язык уже потерял популярность. Но оно не удивительно - в JavaScript завезли классы. И перетянули из кофе кучу фич, например стрелочные функции.</p>
+<p>На момент написания язык уже умирал, но не окончательно. И мне нравился, в том числе за лаконичность. Однако, работав до этого в QIWI, один местный программист на Java сказал мне что всегда мечтал писать на Ruby. Мол Java это для работы, а вот Ruby для души. И я решил что переход на Ruby будет отличным решением. Изучил язык по интерактивной книге-сайту, а потом прочел целиком Путь Ruby - 900 страниц не крупным шрифтом. И это был кайф.</p>
+<p>Первый прибыльный торговый робот был на Ruby. На чистом Ruby, никаких Rails, чистый язык. Впрочем, это мне не помешало использовать JRuby - Java-интерпретатор языка. Он чуть отставал от релизов основного, зато работал поверх Java и содержал многопоточность - я планировал что торги на разных парах будут отдельными потоками.</p>
+<p>Но время шло, я успел поторговать и руками. Даже покодить смарт-контракты на Эфире - на языке Solidity. И пообучать новичков. Но то были не боты - я пытался поднять своё ICO. В 2017 году на них был бум и денег получали все кто просил. Потому что рынок рос, всё росло. И на надежде успеть на поезд пампа - люди скупали всё что релизили, не особо вчитываясь чего за проект. Главное чтобы выросло. И оно росло.</p>
+<p>К сожалению, я не пережил крах ICO и пришлось поработать в найме. Вот тогда знания Ruby мне и помогли. А ещё админство в крупном Ruby-чате. Так мне дали проектик на приличную сумму. Но увы - всё же основной мой язык был JavaScript и дальше я начал писать на нем. А знания крипты помогло попасть в соответствующий стартап.</p>
+<p>Время шло и я не спеша переехал на TypeScript - версию JavaScript от Microsoft. Там добавили типы и кучу всяких абстракций, вроде интерфейсов и енумов. Автор языка - тот же что и у C#. И сейчас на этом языке работает половина интернета. А ещё куча десктопных и мобильных приложений. И конечно же встроенные приложения Windows. В принципе удобно - браузер есть чуть ли не на кофеварке. Кстати, если вы купите телевизор со смарт-тв - там тоже будет это вот всё.</p>
+<p>Последних ботов я писал на TypeScript. Но они были аналитические - с торгами на дневных свечах можно торговать и руками, не спеша. Но вот проверить гипотезу, протестировать на длинном промежутке времени, подсказать тебе сонному с утра - это дело роботов. В самых последних версиях это был NestJS - фреймворк для бекенда сайтов, который имеет в себе очень много всего и не только для сайтов. А ещё это чуть ли не стандарт для бекендового JavaScript. А точнее TypeScript. И ещё точнее - NodeJS, именно на нем, в основном, крутится серверный JS. Впрочем, несколько лет назад начали появляться конкуренты.</p>
+<p>И всё это время, параллельно, развивался Rust. Когда-то был популярен браузер Firefox. Он даже моментом доминировал в не-корпоративной сфере и пережил многих, в топ числе победил Microsoft с их браузером. Но сейчас по сути проиграл Google с их Chrome. И вот в 2015 создатели Firefox анонсировали Rust. Язык, который должен был решить их проблему - утечки памяти. При этом оставаясь быстрым.</p>
+<p>Долгий путь он прошел. Сейчас он совсем не принадлежит создателям Firefox и живет отдельно. Я ещё помню шутки про «давайте перепишем всё на Rust» из 2017. Где-то у меня даже есть мем-стикеры в телеграмме, с этим мемом. Добавил их ещё тогда. Тогда это казалось забавным и так шутили те кто писал на C++. Но время прошло. И теперь Rust является разрешенным языком для ядра Linux. А это почти все сервера мира, а также все Android телефоны и бытовая техника. Раньше разрешенными были только C и C++. Приемник.</p>
+<p>Но не только низкоуровневый код.</p>
+<p>Сейчас все браузеры умеют в WebAssembly - такая виртуальная машина, в которой можно исполнять код и что угодно рисовать в браузере. Так, к слову, работает Dart с их Flutter от Google. В них я, кстати, тоже умею. Так вот Rust способен работать и там. И на нем я видел всё - сайты в стиле React, на котором я немного писал. Кросс-платформа для запуска сайтов и на мобилах. Вариации с легким клиентом и запуском вообще на всем что умеет в веб. Фулстек-фреймворки для работы в стиле Remix. А деды-олды вспомнят ещё и Meteor. А как на счет GUI в командной строке по SSH? Не с первого дня, но туда привнесли async/await. Уверен - влияние JavaScript. И при этом есть некоторый уровень ООП. И сборка мусора без сборщика мусора. И если скомпилировалось - значит работает. И сверху к этому - скорость уровня C. Ну и бонусом - некоторые крипто-проекты имеют смарт-контракты на Rust.</p>
+<p>Год назад JetBrains, создатели моей любимой IDE, которой я пользуюсь с 2014, уже 10 лет, неожиданно сделали IDE и для Rust. И я понял что время пришло. Язык повзрослел и пора переходить на него. В этом году я сделал это. Это не простой язык, также он сильно отличается по стилю написания кода. Не фатально, но некоторые базовые моменты приходится писать иначе. Ну и конечно borrow-чекер. Ощущение что ты затянут в латекс и 13 чертей бьют тебя плетьми не жалея сил. И при этом это больно - но приятно. Язык, который сильно тебя ограничивает. Но делает это не просто так. Он ограничивает не эффективный код - и в исполнении кода и по памяти, особенно по памяти. Отсутствие сборщика мусора заставляет давать компилятору понять когда нужно освободить память. Отсюда и новый концепт, который не существовал до этого в других языках - метки времени жизни.</p>
+<p>И что в итоге? Сейчас я пишу анализатор, а в будущем и бот. И с таким языком можно уже доверять коду сильно больше и сильно меньше беспокоиться что ошибка внутри приведет к крупной потере денег. Я уже написал часть кода и в ней есть выгрузка торговых данных и кое-что новое - трассировка лучей. Цикл в цикле в цикле и так несколько раз. С оптимизациями - лишние итерации не делаются, и всё же там реально многоуровневый вложенный код. Так вот вычисления происходят… за 2 секунды. С запросом в базу данных, с диска. Тестирование за 5 лет, с часовыми свечами, на 6 размерностях в обе стороны. В один поток. Я конечно ещё не дописал код, но предполагаю что в конце будет… 3 секунды. Возможно 4. Это как пересесть с велосипеда на звездолет. Очень внушает.</p>
+<p>В целом мне нравится. Конечно на старте была адская боль с тем чтобы перестроиться думать и писать по другому, но всё же, по факту, уровень безопасности на уровне компилятора внушает доверие. И теперь я смотрю в сторону того чтобы в моменте перейти на более мелкие таймфреймы, после завершения работы с крупными. Rust сможет обеспечить меня тем что мне нужно.</p>
+<p>Наступает новая эпоха - эпоха Rust.</p>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto sticky-bottom">
+    <div class="container-fluid mt-5 pt-3 pb-3 bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center pb-3 d-none d-sm-none d-md-block">
+                <p class="text-light pointer" onclick="window.scrollTo(0, 0)"><i class="bi bi-chevron-up"></i> Вверх</p>
+                <p class="text-light pointer" onclick="history.back()"><i class="bi bi-chevron-left"></i> Назад</p>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <span class="text-light">Контакты</span>
+            </div>
+
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+
+            <div class="col-md-2 text-center pb-3 d-flex d-sm-flex d-md-none justify-content-between ps-5 pe-5">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/bootstrap.bundle.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TWQRTQKCR"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0TWQRTQKCR');
+</script>
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(102980675, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/102980675" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pavlov Finance - Фиксация одной валюты к другой</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link href="/favicon.png" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="d-flex flex-column" style="min-height: 100vh">
+<nav class="navbar navbar-expand-lg bg-primary mb-5 sticky-top" data-bs-theme="dark">
+    <div class="container offset-2">
+        <a class="navbar-brand" href="/">Pavlov Finance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/blog">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/extra">Полезное</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container flex-fill">
+    <div class="row justify-content-center mt-2">
+        <div class="col-sm-12 col-md-10 col-xl-8 col-xxl-7">
+            <h1>Фиксация одной валюты к другой</h1>
+            <hr>
+            <p><i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i>
+<i class="bi bi-coin"></i></p>
+<p>Mногие люди знакомы с маржинальной торговлей или бессрочным фьючерсом на биткоин.
+Всё просто вроде как - ты можешь торговать на некий множитель от своего капитала,
+например х10 позволяет торговать суммой в 10 раз больше чем у тебя есть.
+Обычно ты за это что-то доплачиваешь, иногда доплачивают тебе. У классических брокеров
+там может быть ставка в годовых на сумму займа, ещё комиссии за перенос позиции через ночь
+и всякое такое. На бессрочном фьючерсе - каждые 8 часов, в зависимости от рыночных условий,
+те кто в лонге платят чуть-чуть тем кто в шорте и наоборот, то есть иногда могут
+тебе даже доплатить. Вроде всё ок.</p>
+<p class="text-center"><i class="bi bi-currency-exchange h1"></i></p>
+<p>Если цена пойдет не туда - у тебя отберут деньги как только на счету станет меньше
+критического значения капитала. В сыром виде с плечом х5 на лонг у тебя должны отобрать деньги
+как только цена пойдет вниз на 20% не туда. И логично - тебе дали дополнительно + Х * 4 капитала,
+где Х это размер твоих денег, выходит что после изменения цены стоимость твоего капитала 0.8 * Х = Y,
+где Y размер капитала сейчас, а задолжность Х * 4 * 0.20 = 0.8X = 0.8(Y/0.8) = Y, то есть ты
+должен весь капитал на своём счету, дальше твою позицию отбирают. Однако, если в качестве обеспечения
+берут не то что ты купил, а баланс счета в базовой валюте, для фьючерсов так, то там Y всегда
+будет X и можно прожить подольше, но там тоже есть минимальная грань обеспечения, при плече х100
+это что-то в районе 0.5-06% движения цены, хотя должно было бы быть 1%, ведь 1% * 100 = 100%
+капитала. Для х50 это уже может быть 1.5% вместо 2%. Такая вот механика,
+но всегда стоит почитать спецификацию маржи/контракта.</p>
+<p class="text-center"><i class="bi bi-cash-coin h1"></i></p>
+<p>А что там про фиксацию валют? Так вот бывают фьючерсы с обеспечением в биткоине.
+И депозитить туда можно тоже только в биткоине. В итоге ты вроде в торгах когда - всё ок,
+примерно также работает, но вот вне позиции - у тебя на руках биткоин.
+А хотелось бы чтобы стабильный бакс.</p>
+<p class="text-center"><i class="bi bi-currency-dollar h1"></i></p>
+<p>И вот вам трюк - берём это самый инверсивный контракт, у нас депозит в биткоинах.
+Открываем шорт х1. В итоге когда цена растёт - мы теряем деньги… теряем биткоины,
+у нас остаётся их меньше, но цена то их больше! И наоборот - если цена падает - мы зарабатывает
+на нашем шорте, у нас становится больше биткоинов, но они дешевле. Каждые 8 часов мы платим
+комиссию, но на бессрочных фьючерсах чаще всего на лонг комиссии положительные, а на шорт
+отрицательные, что-то в районе 0.01% в 8 часов, это +11.3% годовых. По итогу - мы имея депозит
+в виде биткоина имеем фактически бакс в виде вклада под ~10% годовых и нам не важно
+колебание курса, мы стабильны.</p>
+<p class="text-center"><i class="bi bi-currency-bitcoin h1"></i></p>
+<p>Такой вот трюк. Можно применять, например, когда ты торгуешь в баксах,
+но хочешь фиксацию в евро и наоборот. А самое веселое это инверсивный контракт на
+эфириум с маржой в биткоине, но с собственной фиксацией к баксу и повторной к евро,
+можно ведь любую валюту к любой так перефиксировать. Такая вот магия.</p>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto sticky-bottom">
+    <div class="container-fluid mt-5 pt-3 pb-3 bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center pb-3 d-none d-sm-none d-md-block">
+                <p class="text-light pointer" onclick="window.scrollTo(0, 0)"><i class="bi bi-chevron-up"></i> Вверх</p>
+                <p class="text-light pointer" onclick="history.back()"><i class="bi bi-chevron-left"></i> Назад</p>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <span class="text-light">Контакты</span>
+            </div>
+
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+
+            <div class="col-md-2 text-center pb-3 d-flex d-sm-flex d-md-none justify-content-between ps-5 pe-5">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/bootstrap.bundle.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TWQRTQKCR"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0TWQRTQKCR');
+</script>
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(102980675, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/102980675" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>

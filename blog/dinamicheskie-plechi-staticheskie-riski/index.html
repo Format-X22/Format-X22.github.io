@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pavlov Finance - Динамические плечи, статические риски</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link href="/favicon.png" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="d-flex flex-column" style="min-height: 100vh">
+<nav class="navbar navbar-expand-lg bg-primary mb-5 sticky-top" data-bs-theme="dark">
+    <div class="container offset-2">
+        <a class="navbar-brand" href="/">Pavlov Finance</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/blog">Блог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link 
+                        
+                    " href="/extra">Полезное</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center blog-content">
+        <div class="col-md-8">
+            <h1>Динамические плечи, статические риски</h1>
+            <p class="subtitle">
+                <strong><time datetime="2023-09-29">2023-09-29 </time></strong>
+            </p>
+            <p>Константы - зло. Достаточно часто спрашивая кого-либо или наблюдая что-то в интернете можно видеть такой кейс - люди ставят стоп-лоссы на каком-то проценте от входа. Иногда прям конкретные проценты, иногда с зависимостью от таймфрейма или подобного, но всегда какой-то процент. Мол комфортно 2%, а там посмотрим. И, вроде бы, ну звучит логично - попытка уменьшить риски точно зная что если цена пойдет не в ту сторону - через 2% убыток будет зафиксирован, всё, проблем нет, идеально же. Но есть нюанс... а почему, собственно, именно столько? И как контролировать риск и прибыль на длинной дистанции?</p>
+<p>Если у нас стоп всегда статичен, а выход в зависимости от того что на рынке - у нас возникает проблема - а можно ли вообще посчитать что-то в будущем? Возможно точка выхода имеет какую-то формулу, но, получается что нужно тестировать именно её, на сколько она имеет расхождения - потому что на каждую сделку будет разнообразный и риск к прибыли. Мол всегда 2% стоп, но вот тейк, точка выхода, может быть произвольным. И каждый раз произвольное соотношение риска к прибыли. Стратегия не стабильна и всё держится на той формуле определения когда нужно выходить и на сколько она жизнеспособна в разных ситуациях на рынке.</p>
+<p>Бывает что и выход фиксирован. Вообще есть прям классика - 1 к 3, мол такой риск он безопасен в долгую. Но, на самом деле, это конечно обоснования уровня астрологии - по факту может быть слишком много сделок в убыток и никакие 1 к 3 не помогут. Во-вторых - а почему 3, а не 3.1 или 2.9? Чем лучше именно 3? Такое без обоснования под собой ведет лишь к убыткам, магическое число само по себе. Но рассчеты риска к прибыли в будущем становятся предсказуемее. Вопрос только в самих сделках.</p>
+<p>Однако с константным стопом тоже получается не всё гладко - а почему не 1.9% или 2.1%? Почему именно 2%? Не имея обоснования это всегда ведет к потерям. И потери возникают в те моменты когда рынок более волатилен или менее волатилен - когда более - выходит что выход по стопу будет чаще, а когда наоборот и волатильность низка - так до тейка уже может не дойти, не хватает запала.</p>
+<p>Любые стратегии, основанные на константах, не имеющих под собой обоснований основанных на самом рынке - обречены так или иначе либо к потерям, либо к значительно меньшим прибылям. Единственный способ правильно рассчитывать стопы и тейки - это основываться на самом движении рынка, как в самой цене, так и в психологии поведения в целом. Любые константы без обоснований, но которые работают - лишь временная корелляция, случайное попадание в текущий рынок, без будущего к тому моменту как рынок поменяется.</p>
+<p>То есть что получается по примерам выше - вроде бы стоп статичен и риски должны быть статичны, но это не так. На самом деле риски тут динамические из-за того что рынок ходит по разному, а стоп применяется одинаковый. Увы, не всем это очевидно.</p>
+<p>Для решения таких проблем я использую динамические плечи при статическом риске - риск на капитал всегда один и тот же, но вот стоп и тейк ставятся там где они должны быть относительно самого рынка. И чтобы соблюсти всегда статический риск - я домножаю капитал на необходимый мультипликатор, грубо говоря определяю плечо с которым я захожу, на каждую сделку оно своё, но зависит от диапазона движения и учитываются типичные проскальзывания и комиссии. Также оно может быть меньше единицы, если движение уж очень большое, но риск всегда статический.</p>
+<p>В итоге не важно что у нас - сильный тренд, плоский флет, сильная волатильность туда-сюда или затишье - каждый раз сделка будет давать примерно одинаковые прибыли при примерно одинаковых рисках и колебания лишь на уровне комиссий и проскальзываний, сами же базовые риски - всегда статичны. В результате предсказуемость резко увеличивается, появляется адаптивность к фазам рынка, предсказательная сила начинает работать по настоящему. Это единственный способ хоть как-то делать прогнозы на долгое будущее. И это - эффективно.</p>
+
+        </div>
+    </div>
+</div>
+
+<footer class="mt-auto sticky-bottom">
+    <div class="container-fluid mt-5 pt-3 pb-3 bg-primary">
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center pb-3 d-none d-sm-none d-md-block">
+                <p class="text-light pointer" onclick="window.scrollTo(0, 0)"><i class="bi bi-chevron-up"></i> Вверх</p>
+                <p class="text-light pointer" onclick="history.back()"><i class="bi bi-chevron-left"></i> Назад</p>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <span class="text-light">Контакты</span>
+            </div>
+
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+            </div>
+            <div class="col-md-2 text-center h5 pb-3 align-content-center d-none d-sm-none d-md-block">
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+
+            <div class="col-md-2 text-center pb-3 d-flex d-sm-flex d-md-none justify-content-between ps-5 pe-5">
+                <a href="https://www.linkedin.com/in/oleg-pavlov-m/"><i class="bi bi-linkedin"> </i>LinkedIn</a>
+                <a href="https://t.me/pavlovfinance"><i class="bi bi-telegram"> </i>Telegram</a>
+                <a href="mailto:oleg.pav.m@gmail.com"><i class="bi bi-envelope-fill"> </i>Email</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/bootstrap.bundle.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TWQRTQKCR"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0TWQRTQKCR');
+</script>
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(102980675, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/102980675" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>
